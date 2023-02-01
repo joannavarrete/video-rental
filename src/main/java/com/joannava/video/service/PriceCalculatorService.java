@@ -1,23 +1,28 @@
-package com.joannava.video.util;
+package com.joannava.video.service;
 
 import java.math.BigInteger;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.springframework.stereotype.Service;
+
 import com.joannava.video.bo.Price;
 import com.joannava.video.dao.Film.Type;
 
-public class PriceCalculator {
+@Service
+public class PriceCalculatorService {
 
-    private static final Map<Type, Price> prices = new TreeMap<>();
+    private final Map<Type, Price> prices = new TreeMap<>();
 
-    static {
+    //should be a database table.
+    public PriceCalculatorService(){
         prices.put(Type.RELEASE, new Price(new BigInteger("40"), Integer.MAX_VALUE, 1));
         prices.put(Type.REGULAR, new Price(new BigInteger("30"), 3, 3));
         prices.put(Type.OLD, new Price(new BigInteger("30"), 5, 5));
     }
 
-    public static BigInteger calculate(Type type, int days) {
+    //We could/should use a strategy pattern here
+    public BigInteger calculate(Type type, int days) {
 
         var price = prices.get(type);
         BigInteger total = new BigInteger("0");

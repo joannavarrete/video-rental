@@ -12,15 +12,16 @@ import com.joannava.video.dao.Film;
 import com.joannava.video.dto.RentRequest;
 import com.joannava.video.dto.RentedFilm;
 import com.joannava.video.repository.FilmRepository;
-import com.joannava.video.util.PriceCalculator;
 
 @Service
 public class FilmService {
 
     private final FilmRepository filmRepository;
+    private final PriceCalculatorService priceService;
 
-    public FilmService(FilmRepository filmRepository) {
+    public FilmService(FilmRepository filmRepository, PriceCalculatorService priceService) {
         this.filmRepository = filmRepository;
+        this.priceService = priceService;
         startDatabase();
     }
 
@@ -43,7 +44,7 @@ public class FilmService {
                 rented.add(RentedFilm.builder()
                         .id(realFilm.getId())
                         .name(realFilm.getName())
-                        .price(PriceCalculator.calculate(realFilm.getType(), request.getDays()))
+                        .price(priceService.calculate(realFilm.getType(), request.getDays()))
                         .errorOcurred(false)
                         .build());
                 realFilm.setRented(true);

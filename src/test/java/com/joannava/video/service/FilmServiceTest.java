@@ -38,7 +38,8 @@ public class FilmServiceTest {
 
     @BeforeEach
     public void beforeEach() {
-        filmService = new FilmService(repository);
+        
+        filmService = new FilmService(repository, new PriceCalculatorService());
     }
 
     @Test
