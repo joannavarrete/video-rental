@@ -1,7 +1,0 @@
-/home/sorack/Documents/video-rental/src/main/java/com/joannava/video/controller/FilmController.java
-/home/sorack/Documents/video-rental/src/main/java/com/joannava/video/dao/Film.java
-/home/sorack/Documents/video-rental/src/main/java/com/joannava/video/dto/RentedFilm.java
-/home/sorack/Documents/video-rental/src/main/java/com/joannava/video/repository/FilmRepository.java
-/home/sorack/Documents/video-rental/src/main/java/com/joannava/video/dto/RentRequest.java
-/home/sorack/Documents/video-rental/src/main/java/com/joannava/video/VideoApplication.java
-/home/sorack/Documents/video-rental/src/main/java/com/joannava/video/service/FilmService.java
